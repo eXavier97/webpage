@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Signup</title>
+</head>
+
+<body style="background: url('/images/bedge_grunge.png')">
+    <div class="container">
+        <div class="col-sm-6 mx-auto">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h1 class="text-center">
+                        <span class="fa fa-sign-in"></span> Signup
+                    </h1>
+
+                    <% if(message.length > 0) { %>
+                        <div class="alert alert-danger">
+                            <%= message %>
+                        </div>
+                        <% } %>
+
+                            <form action="/signup" method="post">
+                                <div class="form-group">
+                                    <label>Usuario</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+
+                                <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <p>Tienes una cuenta?
+                                    <a href="/login">login</a>
+                                </p>
+                                <p>O ir a
+                                    <a href="/">Home.</a>
+                                </p>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
