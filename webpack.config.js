@@ -1,9 +1,12 @@
 const {VueLoaderPlugin} = require('vue-loader');
 module.exports = {
-    entry: './src/app/index.js',
+    entry: {
+        index: './src/app/index.js',
+        admin: './src/app/admin.js'
+    },
     output: {
         path: __dirname + '/src/public/javascripts',
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     module: {
         rules: [

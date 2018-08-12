@@ -9,9 +9,9 @@
                 <input type="text" ref="FirstName" :value="value.firstName" placeholder="Ingrese Nombre" maxlength="50" required>
                 <br> *Apellido
                 <input type="text" ref="LastName" :value="value.lastName" placeholder="Ingrese Apellido" maxlength="50" required>
-                <br> Teléfono:
+                <br> *Teléfono:
                 <br>
-                <input type="text" ref="Phone" :value="value.phone" placeholder="Ingrese Teléfono" pattern="[0-9]{0,}" maxlength="25">
+                <input type="text" ref="Phone" :value="value.phone" placeholder="Ingrese Teléfono" pattern="[0-9]{0,}" maxlength="25" required>
                 <br> *Dirección:
                 <br>
                 <input type="text" ref="Address" :value="value.address" placeholder="Ingrese Dirección" required>

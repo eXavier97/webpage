@@ -28,9 +28,9 @@
                 <br> *Pais:
                 <br>
                 <input type="text" ref="Country" :value="value.country" placeholder="Ingrese País" maxlength="50" required>
-                <br> Fecha Nacimiento:
+                <br> *Fecha Nacimiento:
                 <br>
-                <input type="date" ref="Birthdate" :value="value.birthdate" placeholder="Ingrese Fecha">
+                <input type="date" ref="Birthdate" :value="value.birthdate" placeholder="Ingrese Fecha" required>
                 <br>
                 <br>
                 <span style="font-size: 0.7em">*Campos obligatorios</span><br>

@@ -18,6 +18,8 @@
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.3",
     "connect-flash": "^0.1.1",
+    "connect-history-api-fallback": "^1.5.0",
+    "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
@@ -32,7 +34,9 @@
     "passport-local-mongoose": "^5.0.1",
     "path": "^0.12.7",
     "popper.js": "^1.14.4",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "vue-axios": "^2.1.3",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

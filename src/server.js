@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
+const MongoStore = require('connect-mongo')(session);
 const favicon = require('serve-favicon');
 
 const { url } = require('./config/database');
@@ -34,10 +35,18 @@ app.use(session({
     secret: 'proyectoprogramacioncomercial',
     resave: false,
     saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection}),
+    cookie: {maxAge: 180*60*1000}
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use((req, res, next) => {
+    res.locals.login = req.isAuthenticated();
+    res.locals.session = req.session;
+    next();
+});
+
 
 //Routes
 require('./routes/Router')(app, passport);

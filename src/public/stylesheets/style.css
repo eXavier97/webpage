@@ -18,7 +18,6 @@
 
 body {
     margin: 0px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background: url("../images/bedge_grunge.png");
 }
 
@@ -53,21 +52,38 @@ hr {
 
 .navbarCustom {
     display: flex;
-    background-color: var(--color2); 
+    background-color: var(--color2);
+    flex-direction: row;
 }
 
-.navbarCustom div {
+.navbarCustom ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbarCustom a {
+    display: block;
     text-decoration: none;
     padding: 10px;
     color: white;
     text-align: center;
 }
 
-.navbarCustom div:hover {
+.navbarCustom a:hover {
+    text-decoration: none;
     background-color: var(--color5);
     cursor: pointer;
 }
 
+.navbarCustom a {
+    color: white;
+}
+
+.router-link-exact-active, .navbarCustom .router-link-exact-active:hover {
+    background-color: var(--color3);
+}
 
 .sidebar {
     background-color: var(--color4);

@@ -4,7 +4,7 @@ module.exports = (app, passport) => {
 
     app.get('/', (req, res) => {
         res.render('index');
-    });
+    })
 
     app.get('/login', (req, res) => {
         res.render('login', {
@@ -25,15 +25,13 @@ module.exports = (app, passport) => {
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/admin',
+        successRedirect: '/admin.html',
         failureRedirect: '/signup',
         failureFlash: true
     }));
     
     app.get('/admin', logged.isLoggedIn, (req, res) => {
-        res.render('admin', {
-            user: req.user
-        })
+        res.render('admin');
     })
 
     app.get('/logout', (req, res) => {
