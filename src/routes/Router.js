@@ -25,7 +25,7 @@ module.exports = (app, passport) => {
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/admin.html',
+        successRedirect: '/admin',
         failureRedirect: '/signup',
         failureFlash: true
     }));
@@ -37,5 +37,9 @@ module.exports = (app, passport) => {
     app.get('/logout', (req, res) => {
         req.logout();
         res.redirect('/');
+    })
+
+    app.get('/customer',(req, res) => {
+        res.render('customer');
     })
 };

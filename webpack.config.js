@@ -2,7 +2,8 @@ const {VueLoaderPlugin} = require('vue-loader');
 module.exports = {
     entry: {
         index: './src/app/index.js',
-        admin: './src/app/admin.js'
+        admin: './src/app/admin.js',
+        customer: './src/app/customer.js'
     },
     output: {
         path: __dirname + '/src/public/javascripts',

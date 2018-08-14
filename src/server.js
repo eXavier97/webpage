@@ -55,6 +55,7 @@ app.use('/api/employees', require('./routes/employeeRoute'));
 app.use('/api/products', require('./routes/productRouter'));
 app.use('/api/shippers', require('./routes/shipperRouter'));
 app.use('/api/suppliers', require('./routes/supplierRouter'));
+app.use('/customer', require('./routes/products'));
 
 //Static files
 app.use(express.static(__dirname + '/public'));
