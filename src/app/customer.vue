@@ -8,7 +8,7 @@
         </ul>
         <ul>
             <li>
-                <router-link to="/shoppingCar">Cart<span class="badge">2</span></router-link>
+                <router-link to="/shoppingCar">Cart<span class="badge"></span></router-link>
             </li>
             <li>
                 <a href="/logout">Logout</a>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-    
-}
+};
 </script>

@@ -1,4 +1,5 @@
 const logged = require('./logController');
+const User = require('../models/customers');
 
 module.exports = (app, passport) => {
 
@@ -12,11 +13,18 @@ module.exports = (app, passport) => {
         })
     });
 
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/admin',
-        failureRedirect: '/login',
-        failureFlash: true
-    }));
+    app.post('/login', function (req, res, next) {
+        passport.authenticate('local-login', function (err, user, info) {
+            if (err) { return next(err); }
+            if (!user) { return res.redirect('/login'); }
+            req.logIn(user, function (err) {
+                if (err) { return next(err); }
+                if (user.admin)
+                    return res.redirect('/admin');
+                return res.redirect('/customer');
+            });
+        })(req, res, next);
+    });
 
     app.get('/signup', (req, res) => {
         res.render('signup', {
@@ -25,21 +33,33 @@ module.exports = (app, passport) => {
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/admin',
+        successRedirect: '/customer',
         failureRedirect: '/signup',
         failureFlash: true
     }));
-    
+
     app.get('/admin', logged.isLoggedIn, (req, res) => {
         res.render('admin');
     })
 
     app.get('/logout', (req, res) => {
+        if (req.session && req.session.passport.user) {
+            User.findOne({ '_id': req.session.passport.user })
+                .then(user => {
+                    user.cart = req.session.car;
+                    user.save()
+                        .catch(err => {
+                            console.log(err);
+                        })
+                    req.session.destroy();
+                })
+                .catch(err => console.log(err));
+        }
         req.logout();
         res.redirect('/');
     })
 
-    app.get('/customer',(req, res) => {
+    app.get('/customer', (req, res) => {
         res.render('customer');
     })
 };

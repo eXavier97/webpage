@@ -71,7 +71,7 @@
                         <label>
                             <b>Usuario</b>
                         </label>
-                        <input type="text" name="username" placeholder="Ingrese Usuario" />
+                        <input type="text" name="email" placeholder="Ingrese Usuario" />
                         <label>
                             <b>Contraseña</b>
                         </label>

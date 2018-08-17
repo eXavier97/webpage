@@ -1,7 +1,7 @@
 <template>
 <div class="hello" >
   <div class="container">
-    <div class="row" v-if="ShoppingCar.length >= 0">
+    <div class="row" v-if="ShoppingCar">
       <h1> Mi Carrito de Compras</h1>
       <table class="table table-hover">
       <thead>
@@ -57,13 +57,12 @@ export default {
   },
   methods: {
     generarC() {
-      var self = this;
       axios
         .get("http://localhost:3000/customer/shoppingCar")
         .then(res => {
-          self.ShoppingCar = res.data.productos;
-          self.cantTotal = res.data.CantidadTotal;
-          self.Total = res.data.Total;
+          this.ShoppingCar = res.data.productos;
+          this.cantTotal = res.data.CantidadTotal;
+          this.Total = res.data.Total;
         })
         .catch(err => console.log(err));
     },

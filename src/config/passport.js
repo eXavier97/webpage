@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 
-const User = require('../models/users');
+const User = require('../models/customers');
 
 module.exports = function (passport) {
     passport.serializeUser(function (user, done) {
@@ -14,22 +14,22 @@ module.exports = function (passport) {
     });
 
     passport.use('local-signup', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
-        usernameField: 'username',
+        // by default, local strategy uses email and password, we will override with email
+        usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
-        function (req, username, password, done) {
-            User.findOne({ 'local.username': username }, function (err, user) {
+        function (req, email, password, done) {
+            User.findOne({ 'email': email }, function (err, user) {
                 if (err) {
                     return done(err);
                 }
                 if (user) {
                     return done(null, false, req.flash('signupMessage', 'Usuario ya existe'));
                 } else {
-                    var newUser = new User();
-                    newUser.local.username = username;
-                    newUser.local.password = newUser.generateHash(password);
+                    var newUser = new User(req.body);
+                    //newUser.local.email = email;
+                    newUser.password = newUser.generateHash(password);
                     newUser.save(function (err) {
                         if (err) { throw err; }
                         return done(null, newUser);
@@ -39,11 +39,11 @@ module.exports = function (passport) {
         }));
 
     passport.use('local-login', new LocalStrategy({
-        usernameField: 'username',
+        usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true
-    }, (req, username, password, done) => {
-        User.findOne({ 'local.username': username }, (err, user) => {
+    }, (req, email, password, done) => {
+        User.findOne({ 'email': email }, (err, user) => {
             if (err) { return done(err); }
             if (!user) {
                 return done(null, false, req.flash('loginMessage', 'Usuario no encontrado'));
@@ -51,6 +51,7 @@ module.exports = function (passport) {
             if (!user.validatePassword(password)) {
                 return done(null, false, req.flash('loginMessage', 'Contraseña Incorrecta'));
             }
+            req.session.car = user.cart || {};
             return done(null, user);
         });
     }));

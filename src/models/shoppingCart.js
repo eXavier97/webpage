@@ -17,7 +17,9 @@ module.exports = function Car(oldCar) {
 
     this.eliminarUno = function (id) {
         this.productos[id].cantidad--;
-        this.productos[id].subtotal -= this.productos[id].producto.subtotal;
+        console.log(this.productos[id].subtotal);
+        this.productos[id].subtotal-=this.productos[id].producto.unitPrice;
+        console.log(this.productos[id].subtotal);
         this.CantidadTotal--;
         this.TotalAPagar -= this.productos[id].producto.unitPrice;
         if (this.productos[id].cantidad <= 0) {
