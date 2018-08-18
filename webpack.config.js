@@ -3,7 +3,8 @@ module.exports = {
     entry: {
         index: './src/app/index.js',
         admin: './src/app/admin.js',
-        customer: './src/app/customer.js'
+        customer: './src/app/customer.js',
+        order: './src/app/order.js'
     },
     output: {
         path: __dirname + '/src/public/javascripts',

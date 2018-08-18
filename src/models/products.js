@@ -39,7 +39,8 @@ const Product = new Schema({
     discontinued: {
         type: Boolean,
         default: false
-    }
+    },
+    Img: String
 }, {
     timestamps: true
 });

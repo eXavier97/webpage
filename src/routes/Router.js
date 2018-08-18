@@ -21,7 +21,7 @@ module.exports = (app, passport) => {
                 if (err) { return next(err); }
                 if (user.admin)
                     return res.redirect('/admin');
-                return res.redirect('/customer');
+                return res.redirect('/customer#/1');
             });
         })(req, res, next);
     });
@@ -38,7 +38,7 @@ module.exports = (app, passport) => {
         failureFlash: true
     }));
 
-    app.get('/admin', logged.isLoggedIn, (req, res) => {
+    app.get('/admin', logged.isLoggedIn, logged.isAdmin, (req, res) => {
         res.render('admin');
     })
 
@@ -59,7 +59,11 @@ module.exports = (app, passport) => {
         res.redirect('/');
     })
 
-    app.get('/customer', (req, res) => {
+    app.get('/customer', logged.isLoggedIn,(req, res) => {
         res.render('customer');
+    })
+
+    app.get('/order',(req, res) => {
+        res.render('order');
     })
 };

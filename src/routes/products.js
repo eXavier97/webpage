@@ -12,7 +12,7 @@ router.get('/AgregarAlCarrito/:id', function (req, res, next) {
         if (err) { res.json(err) }
         car.agregar(producto, producto._id);
         req.session.car = car;
-        res.send("Producto agregado al carrito exitosamente");
+        res.json(car.CantidadTotal);
     })
 });
 
@@ -45,7 +45,7 @@ router.get('/eliminar/:id', function (req, res, next) {
 
 //Paginacion
 router.get('/:page', (req, res, next) => {
-    let perPage = 3;
+    let perPage = 9;
     let page = req.params.page || 1;
     producto
         .find({})

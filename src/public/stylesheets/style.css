@@ -253,3 +253,12 @@ form input[type=text]:focus, form input[type=password]:focus, form input[type=nu
     outline: none;
 }
 
+.btn-add {
+    background: var(--color2);
+    color: white;
+}
+
+.btn-add:hover {
+    background: var(--color3);
+}
+
