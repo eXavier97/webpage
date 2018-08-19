@@ -13,56 +13,99 @@
 
 <body style="background: url('/images/bedge_grunge.png')">
     <div class="container">
-        <div class="col-sm-6 mx-auto">
-            <div class="card mt-5">
+        <div class="col-12 mx-auto">
+            <div class="card mt-11">
                 <div class="card-body">
                     <h1 class="text-center">
                         <span class="fa fa-sign-in"></span> Signup
                     </h1>
-
                     <% if(message.length > 0) { %>
                         <div class="alert alert-danger">
                             <%= message %>
                         </div>
-                        <% } %>
+                    <% } %>
 
-                            <form action="/signup" method="post">
-                                <div class="form-group">
-                                    <label>*Email:</label>
-                                    <input type="text" class="form-control" name="email" required>
-                                    <label>*Contraseña:</label>
-                                    <input type="password" class="form-control" name="password" required> 
-                                    <label for="">*Nombre Compañia:</label>
-                                    <input type="text" name="companyName" placeholder="Ingrese Compañia" maxlength="50" required>
-                                    <label>*Nombre:</label>
-                                    <input type="text" name="firstName" placeholder="Ingrese Nombre" maxlength="50" required>
-                                    <label>*Apellido:</label>
-                                    <input type="text" name="lastName" placeholder="Ingrese Apellido" maxlength="50" required>
-                                    <label>*Pais:</label>
-                                    <input type="text" name="country" placeholder="Ingrese País" maxlength="50" required>
-                                    <label>Region:</label>
-                                    <input type="text" name="region" placeholder="Ingrese Región" maxlength="50">
-                                    <label>*Ciudad:</label>
-                                    <input type="text" name="city" placeholder="Ingrese Ciudad" maxlength="50" required>
-                                    <label>*Dirección:</label>
-                                    <input type="text" name="address" placeholder="Ingrese Dirección" required>
-                                    <label>*Código Postal:</label>
-                                    <input type="text" name="postalCode" placeholder="Ingrese Código Postal" maxlength="15" required>
-                                    <label>Telefono:</label>
-                                    <input type="text" name="phone" placeholder="Ingrese Teléfono" maxlength="25" pattern="[0-9]{0,}">
+                    <form action="/signup" method="post" class="container">
+                        <div class="form-group" class="group">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Email</label>
+                                <div class="col-10">
+                                    <input type="text" class="form-control" name="email" placeholder="Email" required>
                                 </div>
-
-                                <input type="submit" class="btn btn-warning btn-lg">Signup</button>
-                            </form>
-                            <hr>
-                            <div class="text-center">
-                                <p>Tienes una cuenta?
-                                    <a href="/login">login</a>
-                                </p>
-                                <p>O ir a
-                                    <a href="/">Home.</a>
-                                </p>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Contraseña</label>
+                                <div class="col-10">
+                                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Compañia</label>
+                                <div class="col-10">
+                                    <input type="text" name="companyName" placeholder="Ingrese Nombre Compañia" maxlength="50" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Nombre</label>
+                                <div class="col-10">
+                                    <input type="text" name="firstName" placeholder="Ingrese Nombre" maxlength="50" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Apellido</label>
+                                <div class="col-10">
+                                    <input type="text" name="lastName" placeholder="Ingrese Apellido" maxlength="50" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*País</label>
+                                <div class="col-10">
+                                    <input type="text" name="country" placeholder="Ingrese País" maxlength="50" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Region</label>
+                                <div class="col-10">
+                                    <input type="text" name="region" placeholder="Ingrese Región" class="form-control" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Ciudad</label>
+                                <div class="col-10">
+                                    <input type="text" name="city" placeholder="Ingrese Ciudad" maxlength="50" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Dirección</label>
+                                <div class="col-10">
+                                    <input type="text" name="address" placeholder="Ingrese Dirección" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Código</label>
+                                <div class="col-10">
+                                    <input type="text" name="postalCode" placeholder="Ingrese Código Postal" maxlength="15" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">*Teléfono</label>
+                                <div class="col-10">
+                                    <input type="text" name="phone" placeholder="Ingrese Teléfono" maxlength="25" pattern="[0-9]{0,}" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="btn btn-warning btn-lg btn-block" value="Signup">
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <p>Tienes una cuenta?
+                            <a href="/login">login</a>
+                        </p>
+                        <p>O ir a
+                            <a href="/">Home.</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

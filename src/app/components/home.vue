@@ -32,24 +32,31 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="/images/coffee.png" alt="First slide">
+                            <img class="d-block w-100" src="/images/crema.jpg" alt="First slide" style="height: 80vh; width: 100%;">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Café</h5>
+                                <h5 style="color:black">Crema Anti-Edad</h5>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/images/chocolate.jpg" alt="Second slide">
+                            <img class="d-block w-100" src="/images/pañales.jpg" alt="Second slide" style="height: 80vh; width: 100%;">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Chocolate</h5>
+                                <h5 style="color:black">Pañales para Bebé</h5>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/images/ravioli.jpg" alt="Third slide">
+                            <img class="d-block w-100" src="/images/shampoo.jpg" alt="Third slide" style="height: 80vh; width: 100%;">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Ravioli</h5>
+                                <h5 style="color:black">Shampoo</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/images/desodorante.jpg" alt="Fourth slide" style="height: 80vh; width: 100%;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 style="color:black">Desodorante</h5>
                             </div>
                         </div>
                     </div>

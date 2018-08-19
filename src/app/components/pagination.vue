@@ -4,11 +4,11 @@
     <div class="row ">
         <div v-for="(p,indexes) in productos" v-bind:key="indexes" class="p-4">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" :src=p.Img alt="Card image cap" style="height:200px">
+                <img class="card-img-top" :src=p.Img alt="Card image cap" style="height:300px">
                 <div class="card-body">
                     <h5 class="card-title"><strong>{{p.name}}</strong></h5>
                     <div class="clearfix">
-                        <div class="precio" style="float:left"> L.{{p.unitPrice}}</div>
+                        <div class="precio" style="float:left"> L.{{p.unitPrice/100}}</div>
                         <button class="btn btn-add pull-right" @click="agregar(p._id)" style="float:right">Agregar al carrito</button>
                     </div>
                 </div>

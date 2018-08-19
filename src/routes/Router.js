@@ -33,7 +33,7 @@ module.exports = (app, passport) => {
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/customer',
+        successRedirect: '/customer#/1',
         failureRedirect: '/signup',
         failureFlash: true
     }));

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"northwind.sessions"},{"v":2,"key":{"expires":1},"name":"expires_1","ns":"northwind.sessions","expireAfterSeconds":0}],"uuid":"a67f9489ee244bc091078e29ae6e7e3f"}

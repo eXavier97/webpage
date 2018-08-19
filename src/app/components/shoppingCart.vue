@@ -15,9 +15,9 @@
             <tbody>
                 <tr v-for="(s,index) in ShoppingCar" v-bind:key="index">
                     <td> {{s.producto.name}}</td>
-                    <td> {{s.producto.unitPrice}}</td>
+                    <td> {{s.producto.unitPrice/100}}</td>
                     <td> {{s.cantidad}}</td>
-                    <td> {{s.subtotal}}</td>
+                    <td> {{s.subtotal/100}}</td>
                     <td>
                         <button @click="eliminarUno(s.producto._id)" class="btn btn-primary">-</button>
                         <button @click="eliminarProducto(s.producto._id)" class="btn btn-danger">Eliminar</button>
@@ -28,8 +28,8 @@
         </table>
     </div>
     <p><b>Cantidad Total:</b> {{cantTotal}}</p>
-    <p><b> Total A Pagar:</b> {{Total}}</p>
-    <button class="btn btn-primary" v-show="cantTotal != 0"><a href="/order" style="text-decoration: none; color: white;">Generar Orden</a></button>
+    <p><b> Total A Pagar:</b> {{Total/100}}</p>
+    <a href="/order" style="text-decoration: none; color: white;"><button class="btn btn-primary" v-show="cantTotal != 0">Generar Orden</button></a>
 
 </div>
 </template>

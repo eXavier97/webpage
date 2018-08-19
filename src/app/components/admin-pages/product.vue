@@ -33,7 +33,7 @@
                         <tbody>
                             <tr v-for="c in products">
                                 <td>{{c.name}}</td>
-                                <td>{{c.unitPrice}}</td>
+                                <td>{{c.unitPrice/100}}</td>
                                 <td>
                                     <button @click="deleteData(c._id, 'products')" class="btn btn-danger">Eliminar</button>
                                     <button @click="editData(c._id, 'products')" class="btn btn-secondary">Editar</button>
@@ -71,7 +71,8 @@ class Product {
     unitsInStock,
     unitsOnOrder,
     reorderLevel,
-    discontinued
+    discontinued,
+    Img
   ) {
     this.name = name;
     this.supplier = supplier;
@@ -82,6 +83,7 @@ class Product {
     this.unitsOnOrder = unitsOnOrder;
     this.reorderLevel = reorderLevel;
     this.discontinued = discontinued;
+    this.Img = Img;
   }
 }
 
