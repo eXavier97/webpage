@@ -25,6 +25,16 @@ router.get('/shoppingCar', function (req, res, next) {
 
 });
 
+router.get('/shoppingCar/:id', function (req, res, next) {
+    var car = new Car(req.session.car);
+    console.log(car);
+    var cantidad = req.session.car.buscarCantidad(req.params.id);
+    res.json({ cantidad: cantidad });
+
+});
+
+
+
 router.get('/eliminarUno/:id', function (req, res, next) {
     var productId = req.params.id;
     var car = new Car(req.session.car ? req.session.car : {});
@@ -48,7 +58,7 @@ router.get('/:page', (req, res, next) => {
     let perPage = 9;
     let page = req.params.page || 1;
     producto
-        .find({})
+        .find({ unitsInStock: { $gt: 0 } })//$gt
         .skip((perPage * page) - perPage)
         .limit(perPage)
         .exec((err, products) => {

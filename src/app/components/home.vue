@@ -89,11 +89,27 @@
                         <a href="/signup">Crear una cuenta</a>
                     </div>
                 </div>
+                <div class="login">
+                    <p style="text-aling:center"><b>Nuestros Patrocinadores:</b></p>
+                    <img src="/images/coca cola.png" alt="" class="publi" style="height: 70px; margin-left:50px; margin-top:20px;">
+                    <img src="/images/Pepsi.png" alt="" class="publi" style="height: 80px; margin-left:50px; margin-top:20px;">
+                    <img src="/images/colgate.png" alt="" class="publi" style="height:50px; margin-left:50px; margin-top:30px;">
+                    <img src="/images/mazola.png" alt="" style="height:140px; margin-left:50px; margin-top:0px;">
+                </div>
             </div>
         </div>
 
         <div class="footer">
-            Proyecto Programación Comercial
+            <p>Contactanos:</p>
+            <p>Email: servicioalcliente@fiveStar.com</p>
+            <p>Números Telefónicos: (504)22000505 - (504)22000520</p>
+            <p>Siguenos en nuestras Redes Sociales:</p>
+            <div style="display:inline-block; margin-bottom: 20px;" >
+                <a href="#"><img src="/images/googlePlus.jpg" alt="" style="width: auto;height: 40px;float:right;margin-left: 20px;"></a>
+                <a href="#"><img src="/images/skype.png" alt="" style="width: auto;height: 40px;float:right;margin-left: 20px;"></a>
+                <a href="#"><img src="/images/twiter.png" alt="" style="width: auto;height: 40px;float:right;margin-left: 20px;"></a>
+                <a href="#"><img src="/images/facebook.png" alt="" style="width: auto;height: 40px; float:right;margin-left: 20px;"></a>
+            </div>
         </div>
     </div>
 </template>

@@ -34,6 +34,10 @@ module.exports = function Car(oldCar) {
 
     }
 
+    this.buscarCantidad=function(id){
+         return this.productos[id].cantidad;
+    }
+
     this.arregloProductos = function () {
         var arr = [];
         for (var id in this.productos) {

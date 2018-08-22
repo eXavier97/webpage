@@ -17,6 +17,9 @@
             <li>
                 <router-link to="/suppliers">Proveedores</router-link>
             </li>
+            <li>
+                <router-link to="/orders">Ordenes</router-link>
+            </li>
         </ul>
         <ul>
             <li>

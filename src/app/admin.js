@@ -12,6 +12,7 @@ import employee from './components/admin-pages/employee.vue'
 import shippers from './components/admin-pages/shippers.vue'
 import supplier from './components/admin-pages/supplier.vue'
 import product from './components/admin-pages/product.vue'
+import order from './components/admin-pages/order.vue'
 
 const routes = [
     {
@@ -33,6 +34,10 @@ const routes = [
     {
         path: "/products",
         component: product
+    },
+    {
+        path: "/orders",
+        component: order
     }
 ];
 

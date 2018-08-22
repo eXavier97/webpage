@@ -61,7 +61,7 @@
             <div class="form-group row">
                 <label class="col-2 col-form-label">*Fecha Nacimiento</label>
                 <div class="col-10">
-                    <input type="date" ref="Birthdate" :value="value.birthdate" placeholder="Ingrese Fecha" class="form-control" required>
+                    <input type="date" ref="Birthdate" :value="value.birthdate" class="form-control" required>
                 </div>
             </div>
         </div>

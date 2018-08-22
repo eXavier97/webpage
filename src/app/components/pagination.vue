@@ -9,7 +9,7 @@
                     <h5 class="card-title"><strong>{{p.name}}</strong></h5>
                     <div class="clearfix">
                         <div class="precio" style="float:left"> L.{{p.unitPrice/100}}</div>
-                        <button class="btn btn-add pull-right" @click="agregar(p._id)" style="float:right">Agregar al carrito</button>
+                        <button class="btn btn-add pull-right" @click="validarExistencia(p)" style="float:right">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,8 @@ export default {
     return {
       productos: [],
       current: "",
-      pages: ""
+      pages: "",
+      cantidad: 0
     };
   },
   created() {
@@ -110,6 +111,28 @@ export default {
         .get("http://localhost:3000/customer/AgregarAlCarrito/" + id)
         .then(res => {
           this.$store.commit("set", res.data);
+        })
+        .catch(err => console.log(err));
+    },
+    validarExistencia(p) {
+      axios
+        .get("http://localhost:3000/api/products/" + p._id)
+        .then(res => {
+          if (res.data.unitsInStock > 0) {
+            this.agregar(p._id);
+            //put
+            axios
+              .put("http://localhost:3000/api/products/" + p._id, {
+                unitsInStock: res.data.unitsInStock - 1
+              })
+              .then(res => {
+                console.log("actualizado");
+                if (res.data.unitsInStock == 0) {
+                  this.productos.splice(this.productos.indexOf(p), 1);
+                }
+              })
+              .catch(err => console.log(err));
+          }
         })
         .catch(err => console.log(err));
     }

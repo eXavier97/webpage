@@ -19,8 +19,8 @@
                     <td> {{s.cantidad}}</td>
                     <td> {{s.subtotal/100}}</td>
                     <td>
-                        <button @click="eliminarUno(s.producto._id)" class="btn btn-primary">-</button>
-                        <button @click="eliminarProducto(s.producto._id)" class="btn btn-danger">Eliminar</button>
+                        <button @click="eliminarUno(s.producto._id, index)" class="btn btn-primary">-</button>
+                        <button @click="eliminarProducto(s.producto._id, index)" class="btn btn-danger">Eliminar</button>
                     </td>
                 </tr>
 
@@ -59,19 +59,48 @@ export default {
         })
         .catch(err => console.log(err));
     },
-    eliminarUno(id) {
+    eliminarUno(id, index) {
       axios
         .get("http://localhost:3000/customer/eliminarUno/" + id)
         .then(res => {
           this.generarC();
+          axios
+            .get("http://localhost:3000/api/products/" + id)
+            .then(res => {
+              var cantidad = res.data.unitsInStock;
+              axios
+                .put("http://localhost:3000/api/products/" + id, {
+                  unitsInStock: cantidad + 1
+                })
+                .then(res => {
+                  console.log("actualizado");
+                })
+                .catch(err => console.log(err));
+            })
+            .catch(err => console.log(err));
         })
         .catch(err => console.log(err));
     },
-    eliminarProducto(id) {
+    eliminarProducto(id, index) {
+      var c = this.ShoppingCar[index].cantidad;
       axios
         .get("http://localhost:3000/customer/eliminar/" + id)
         .then(res => {
           this.generarC();
+          axios
+            .get("http://localhost:3000/api/products/" + id)
+            .then(res => {
+              var cantidad = res.data.unitsInStock;
+              axios
+                .put("http://localhost:3000/api/products/" + id, {
+                  unitsInStock: cantidad +  c
+                })
+                .then(res => {
+                  console.log("actualizado");
+                })
+                .catch(err => console.log(err));
+            })
+            .catch(err => console.log(err));
         })
         .catch(err => console.log(err));
     }

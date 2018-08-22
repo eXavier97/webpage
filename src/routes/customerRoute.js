@@ -4,7 +4,7 @@ const Customer = require('../models/customers');
 const logged = require('./logController');
 
 router.get('/', logged.isLoggedIn, function (req, res) {
-    Customer.find({}, function (err, customers) {
+    Customer.find({admin: false}, function (err, customers) {
         if (err)
             res.send(err);
         res.json(customers);

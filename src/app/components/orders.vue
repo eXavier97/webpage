@@ -87,7 +87,7 @@ export default {
     },
     send() {
       axios
-        .post("/api/order", {
+        .post("/api/orders", {
           customerId: this.customerId,
           firstName: this.firstName,
           lastName: this.lastName,

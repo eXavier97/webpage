@@ -42,7 +42,7 @@ module.exports = (app, passport) => {
         res.render('admin');
     })
 
-    app.get('/logout', (req, res) => {
+    app.get('/logout', logged.isLoggedIn, (req, res) => {
         if (req.session && req.session.passport.user) {
             User.findOne({ '_id': req.session.passport.user })
                 .then(user => {

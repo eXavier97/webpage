@@ -123,14 +123,6 @@ export default {
           // handle success
           console.log(response);
           self.employeeData = response.data;
-          var fecha = new Date(response.data.birthdate);
-          fecha =
-            fecha.getUTCFullYear().toString() +
-            "-" +
-            (fecha.getUTCMonth() + 1).toString() +
-            "-" +
-            fecha.getUTCDate();
-          self.employeeData.birthdate = fecha;
           self.idEdit = response.data._id;
           self.displayedData = "edit-" + route + "-data";
         })

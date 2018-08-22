@@ -3,8 +3,7 @@
         <div class="row">
             <div class="col-12 content">
                 <div v-show="display == 'customers'">
-                    <card img="images/add-customer.png" desc="Añadir Cliente" @action="updateContent('add-customers')"></card>
-                    <right-card img="images/edit-customer.png" desc="Editar Cliente" @action="edit('customers')"></right-card>
+                    <card img="images/edit-customer.png" desc="Editar Cliente" @action="edit('customers')"></card>
                 </div>
                 <div v-show="display == 'add-customers'">
                     <div class="inner-topbar">
