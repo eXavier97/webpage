@@ -1,4 +1,4 @@
-# Webpage
+﻿# Webpage
 Proyecto Programación Comercial
 
 ## Empezando
@@ -14,17 +14,23 @@ NodeJS
 
 ### Instalación
 
-En la carpeta del proyecto, crear una carpeta llamada **mongodb** junto a una subcarpeta llamada **data**. Luego abrir una línea de comandos en la carpeta del proyecto y ejecutar el comando
+ Abrir una línea de comandos en la carpeta del proyecto
+ 
+ Ejecutar
  ```
  npm install
+ ```
+ Luego para importar la base de datos ejecutar
+ ```
+ mongorestore -d northwind -o ./northwind
  ```
  
  ### Ejecución
  Para ejecutar el programa primero hay que iniciar el servidor de MongoDB.
  
- Para eso, abrir una línea de comandos en la carpeta **mongodb** y ejecutar
+ Para eso, abrir una línea de comandos y ejecutar
  ```
- mongod --dbpath=data
+ mongod
  ```
  Luego abrir otra línea de comandos en la carpeta del proyecto y ejecutar
  ```
